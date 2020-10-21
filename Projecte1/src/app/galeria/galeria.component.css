@@ -1,0 +1,15 @@
+.galeria-img{
+  position: relative;
+  transform: translateX(16%);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 75%;
+  width: 75%;
+}
+.carousel-inner{
+  height: 100%;
+}
+
+.carousel-inner>.active{
+  position: relative;
+}
