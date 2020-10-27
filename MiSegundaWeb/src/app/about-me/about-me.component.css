@@ -25,6 +25,10 @@ html {
   transform: translateX(105%);
 }
 
+.card >img{
+  width: 250px;
+}
+
 .about-section {
   padding: 50px;
   text-align: center;
