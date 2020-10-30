@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
+  category: string = 'Mostrar';
+
   constructor() { }
 
   ngOnInit(): void {
