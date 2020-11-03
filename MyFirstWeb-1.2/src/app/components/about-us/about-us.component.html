@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-3">
+      <div class="list-group">
+        <a *ngFor="let worker of workers" class="list-group-item list-group-item-action" [ngClass]="{ 'active': workerSelected === worker }" (click)="selectWorker(worker)">{{worker.name}}</a>
+      </div>
+    </div>
+
+    <div class="col-9">
+      <app-worker-detail [worker]="workerSelected"></app-worker-detail>
+    </div>
+
+  </div>
+</div>
+
+

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="changeCategory('All')">All</button>
+        <button type="button" class="btn btn-secondary" (click)="changeCategory('Small Images')">Small Images</button>
+        <button type="button" class="btn btn-secondary" (click)="changeCategory('Middle Images')">Middle Images</button>
+        <button type="button" class="btn btn-secondary" (click)="changeCategory('Big Images')">Big Images</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="category === 'Small Images' || category === 'All'" class="row" style="margin-top: 1em;">
+    <div *ngFor="let photo of smallPhotos" class="col">
+
+      <div class="card" style="width: 18rem;">
+        <img [src]="photo.imageURL" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{photo.description}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="category === 'Middle Images' || category === 'All'" class="row" style="margin-top: 1em;">
+    <div class="col">
+
+      <div class="card" style="width: 18rem;">
+        <img src="https://picsum.photos/400/200" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Middle Image</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div *ngIf="category === 'Big Images' || category === 'All'" class="row" style="margin-top: 1em;">
+    <div class="col">
+
+      <div class="card" style="width: 18rem;">
+        <img src="https://picsum.photos/500/200" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Big Image</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

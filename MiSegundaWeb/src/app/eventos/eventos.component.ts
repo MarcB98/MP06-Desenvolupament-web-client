@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventList } from 'src/app/models/lista-eventos.model';
 
 @Component({
   selector: 'app-eventos',
@@ -8,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class EventosComponent implements OnInit {
 
   category: string = 'Mostrar';
+  listaEventos: EventList[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
