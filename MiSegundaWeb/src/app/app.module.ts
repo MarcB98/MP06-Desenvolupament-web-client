@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { Error404Component } from './error404/error404.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { AltaEventoComponent } from './eventos/alta-evento/alta-evento.component';
+import { ModificarEventoComponent } from './eventos/modificar-evento/modificar-evento.component';
+import { EliminarEventoComponent } from './eventos/eliminar-evento/eliminar-evento.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { AboutMeComponent } from './about-me/about-me.component';
     HomeComponent,
     EventosComponent,
     Error404Component,
-    AboutMeComponent
+    AboutMeComponent,
+    AltaEventoComponent,
+    ModificarEventoComponent,
+    EliminarEventoComponent
   ],
   imports: [
     BrowserModule,
