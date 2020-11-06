@@ -5,7 +5,9 @@
       <div class="card" style="width: 18rem;">
         <img [src]="worker.imageURL" class="card-img-top" alt="">
         <div class="card-body">
-          <p class="card-text">{{worker.name}}</p>
+          <p class="card-text">{{worker.name}} {{worker.apellido}}</p>
+          <p class="card-text">Edad: {{worker.edad}}</p>
+          <p class="card-text">Descripción: <br>{{worker.descripcio}}</p>
         </div>
       </div>
 
