@@ -1,19 +1,21 @@
 <div class="about-section">
   <h1>Pagina Sobre Mi</h1>
+  <h2 style="text-align:center">Equipo</h2>
 </div>
 
-<h2 style="text-align:center">Equipo</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="../../assets/MarcB.PNG" alt="MarcB98" style="width:100%">
-      <div class="container">
-        <h2>Marc Batalla</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>marcbatalla652@gmail.com</p>
-        <p><button class="button">Contact</button></p>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-3">
+      <div class="list-group">
+        <a *ngFor="let worker of workers" class="list-group-item list-group-item-action" [ngClass]="{ 'active': workerSelected === worker }" (click)="selectWorker(worker)">{{worker.name}}</a>
       </div>
     </div>
+
+    <div class="col-9">
+      <app-worker-detail [worker]="workerSelected"></app-worker-detail>
+    </div>
+
   </div>
 </div>

@@ -11,6 +11,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { AltaEventoComponent } from './eventos/alta-evento/alta-evento.component';
 import { ModificarEventoComponent } from './eventos/modificar-evento/modificar-evento.component';
 import { EliminarEventoComponent } from './eventos/eliminar-evento/eliminar-evento.component';
+import { WorkerDetailComponent } from './worker-detail/worker-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EliminarEventoComponent } from './eventos/eliminar-evento/eliminar-even
     AboutMeComponent,
     AltaEventoComponent,
     ModificarEventoComponent,
-    EliminarEventoComponent
+    EliminarEventoComponent,
+    WorkerDetailComponent
   ],
   imports: [
     BrowserModule,
