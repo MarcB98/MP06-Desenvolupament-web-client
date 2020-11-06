@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { EventList } from 'src/app/models/lista-eventos.model';
 
 @Component({
   selector: 'app-alta-evento',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AltaEventoComponent implements OnInit {
 
+  @Input() events: EventList = null;
   constructor() { }
 
   ngOnInit(): void {
