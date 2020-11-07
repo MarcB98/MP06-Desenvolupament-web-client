@@ -2,3 +2,20 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+#titol{
+  margin-top: 2px;
+  font-family: Verdana;
+}
+
+.table{
+  margin-top: 5px;
+  margin-bottom: 0.5%;
+}
+
+.no-events{
+  text-align: center;
+  font-weight: bold;
+  display: block;
+
+}

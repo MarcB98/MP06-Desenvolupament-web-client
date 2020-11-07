@@ -12,12 +12,41 @@
   </div>
 
   <!--APRATADO DE MOSTRAR TABLA EVENTOS-->
-  <div *ngIf="category === 'Mostrar'"class="row" style="margin-top: 1em;">
-    <p>porfin lokoo</p>
+  <div *ngIf="category === 'Mostrar'" class="container-fluid" >
+
+    <header>
+      <h2 id="titol" >EVENTOS</h2>
+    </header>
+
+    <table class="table">
+      <thead class="thead-dark">
+       <tr>
+         <th scope="col">Nom Event</th>
+         <th scope="col">Lloc Event</th>
+         <th scope="col">Email Contacte</th>
+         <th scope="col">Descripció</th>
+       </tr>
+      </thead>
+
+      <div *ngIf="listaEventos.length != 0" class="container-fluid">
+        <tbody>
+          <tr *ngFor="let event of eventos">
+            <td>{{event.nom_event}}</td>
+            <td>{{event.ubicacion}}</td>
+            <td>{{event.email}}</td>
+            <td>{{event.descripcion}}</td>
+          </tr>
+        </tbody>
+      </div>
+      <div class="container-fluid" *ngIf="listaEventos.length == 0" class="no-events">
+        <p>No hay eventos creados!</p>
+      </div>
+     </table>
+
   </div>
 
   <!--APRATADO DE ALTA EVENTOS-->
-  <div *ngIf="category === 'Alta Event'"class="row" style="margin-top: 1em;">
+  <div *ngIf="category === 'Alta Event'"class="container-fluid">
    <app-alta-evento [events]="listaEventos"></app-alta-evento>
   </div>
 

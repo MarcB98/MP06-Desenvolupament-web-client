@@ -9,6 +9,7 @@ import { EventList } from 'src/app/models/lista-eventos.model';
 export class AltaEventoComponent implements OnInit {
 
   @Input() events: EventList = null;
+
   constructor() { }
 
   ngOnInit(): void {

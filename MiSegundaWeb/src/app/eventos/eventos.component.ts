@@ -15,7 +15,7 @@ export class EventosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.listaEventos.push(new EventList('Festa Major', 'Almenar', 'info@almenar.cat', 'asdfjkavdvlnñkfjasndlñfvasndjfvanjsdfnsldñvkfnalñsdkfjnvlasdkfnasdkfjasdfnaslñdfajsnñldkfnjvasklñdfñlasdjfnlañvsdfnaslñkdjfnvlañsdfnaldksvjnasdkfjv'));
   }
 
   cambiarCategoria(category: string): void{
