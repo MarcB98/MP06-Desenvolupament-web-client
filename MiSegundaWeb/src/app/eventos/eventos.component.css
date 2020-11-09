@@ -19,3 +19,17 @@
   display: block;
 
 }
+.container{
+  margin-top: 8%;
+  margin-bottom: 10%;
+}
+.heading {
+  margin-bottom: 5%;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.btn-group{
+  margin-top: 2%;
+}

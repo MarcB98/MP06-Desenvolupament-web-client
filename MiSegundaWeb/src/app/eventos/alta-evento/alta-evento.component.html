@@ -1,5 +1,26 @@
-<div *ngIf="events !== null" class="container-fluid">
-  <header>
-    <h2 id="titol" >Formulari Alta Event</h2>
-  </header>
-</div>
+<header>
+  <h2 id="titol" >ALTA EVENT</h2>
+</header>
+
+<form>
+
+  <div>
+    <input type="text" id="input-name" #evento placeholder="Nom Event" ><br>
+    <input type="text" id="input-subject" #ubicacion placeholder="Lloc Event"><br>
+    <input type="email" id="input-email" #email placeholder="Email Contacte"><br>
+  </div>
+
+  <div>
+    <textarea name="message" type="text" #descrip id="input-message" placeholder="Descripció Event"></textarea><br>
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="input-check" #check>
+    <label class="form-check-label" for="exampleCheck1">Aceptar terminos</label>
+    <p class="mensajeError" style="color: red;">{{men_error}}</p>
+  </div>
+  <br>
+
+  <input type="button" (click)="enviarDatos(evento.value, ubicacion.value, email.value, descrip.value, check.checked)" value="Añadir" id="input-submit">
+
+</form>

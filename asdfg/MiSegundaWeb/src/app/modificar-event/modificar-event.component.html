@@ -1,0 +1,17 @@
+<div class="container-edit" *ngIf="eventsIn !== null">
+  <h1>{{accion}}</h1>
+  <form class="cf">
+    <div class="half left cf">
+      <input type="text" id="input-name" #evento placeholder="Evento" [value]="eventsIn.tituloEv">
+      <input type="text" id="input-subject" #ubicacion placeholder="Ubicación" [value]="eventsIn.ubicacionEv">
+      <input type="email" id="input-email" #email placeholder="Email" [value]="eventsIn.emailAutor">
+      <label><input type="checkbox" id="input-check" #check>Aceptar Condiciones</label>
+    </div>
+    <div class="half right cf">
+      <textarea name="message" type="text" #descrip id="input-message" placeholder="Descripción" [value]="eventsIn.descripEv"></textarea>
+      <input type="text" id="input-imagen" #imagen placeholder="Imagen" [value]="eventsIn.imgEv">
+    </div>
+    <p class="mensajeError" style="color: red;">{{mensajeError}}</p>
+    <input type="button" (click)="enviarDatosEdit(evento.value, ubicacion.value, email.value, descrip.value, imagen.value, check.checked)" value="Añadir" id="input-submit">
+  </form>
+</div>

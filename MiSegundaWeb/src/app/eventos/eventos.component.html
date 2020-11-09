@@ -3,51 +3,51 @@
   <div class="row">
     <div class="col">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary" (click)="cambiarCategoria('Mostrar')">Mostrar</button>
-        <button type="button" class="btn btn-secondary" (click)="cambiarCategoria('Alta Event')">Alta Event</button>
-        <button type="button" class="btn btn-secondary" (click)="cambiarCategoria('Modificar Event')">Modificar Event</button>
-        <button type="button" class="btn btn-secondary" (click)="cambiarCategoria('Eliminar Event')">Eliminar Event</button>
+        <!--<button type="button" value="show" class="btn btn-secondary">Mostrar</button>-->
+        <button type="button" value="alta" class="btn btn-secondary" (click)="elegirCategoria($event)" >Alta Event</button>
+        <button type="button" value="modify" class="btn btn-secondary" (click)="elegirCategoria($event)">Modificar Event</button>
+        <button type="button" value="borrar" class="btn btn-secondary" (click)="elegirCategoria($event)">Eliminar Event</button>
       </div>
     </div>
   </div>
 
   <!--APRATADO DE MOSTRAR TABLA EVENTOS-->
-  <div *ngIf="category === 'Mostrar'" class="container-fluid" >
-
-    <header>
-      <h2 id="titol" >EVENTOS</h2>
-    </header>
-
-    <table class="table">
-      <thead class="thead-dark">
-       <tr>
-         <th scope="col">Nom Event</th>
-         <th scope="col">Lloc Event</th>
-         <th scope="col">Email Contacte</th>
-         <th scope="col">Descripció</th>
-       </tr>
-      </thead>
-
-      <div *ngIf="listaEventos.length != 0" class="container-fluid">
-        <tbody>
-          <tr *ngFor="let event of eventos">
+  <section>
+    <div class="container">
+      <div class="heading">
+        <h2>EVENTOS DISPONIBLES</h2>
+      </div>
+      <table class="table">
+        <thead class="thead-dark">
+         <tr>
+           <th scope="col">Nom Event</th>
+           <th scope="col">Lloc Event</th>
+           <th scope="col">Email Contacte</th>
+           <th scope="col">Descripció</th>
+         </tr>
+        </thead>
+        <tbody *ngIf="listaEventos.length !=0">
+          <tr *ngFor="let event of listaEventos" (click)="modificarEvent(event)">
             <td>{{event.nom_event}}</td>
             <td>{{event.ubicacion}}</td>
             <td>{{event.email}}</td>
             <td>{{event.descripcion}}</td>
           </tr>
         </tbody>
-      </div>
-      <div class="container-fluid" *ngIf="listaEventos.length == 0" class="no-events">
-        <p>No hay eventos creados!</p>
-      </div>
-     </table>
-
-  </div>
+        <div class="row" *ngIf="listaEventos.length == 0" class="no-events">
+          <p>No hay eventos creados!</p>
+        </div>
+      </table>
+    </div>
+  </section>
 
   <!--APRATADO DE ALTA EVENTOS-->
-  <div *ngIf="category === 'Alta Event'"class="container-fluid">
-   <app-alta-evento [events]="listaEventos"></app-alta-evento>
-  </div>
+  <app-alta-evento *ngIf="(container) === 'alta'" (datos)="altaEvent($event)"></app-alta-evento>
+
+  <!--APRATADO DE MODIFICAR EVENTOS-->
+  <app-modificar-evento *ngIf="(container) === 'modify'" (datos)="modifyEvent($event)"></app-modificar-evento>
+
+  <!--APRATADO DE ELIMINAR EVENTOS-->
+
 
 </div>

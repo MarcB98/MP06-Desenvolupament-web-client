@@ -1,0 +1,80 @@
+<section class="gallery-block cards-gallery">
+  <div class="container">
+      <div class="heading">
+        <h2>EVENTOS DISPONIBLES</h2>
+      </div>
+      <div class="row" *ngIf="events.length != 0">
+
+          <div class="col-md-6 col-lg-4" *ngFor="let event of events" (click)="editarEvento(event)">
+              <div class="card border-0 transform-on-hover">
+                <a class="lightbox">
+                  <img src="{{event.imgEv}}" alt="Card Image" class="card-img-top">
+                </a>
+                  <div class="card-body">
+                      <h6><a href="#">{{event.tituloEv}}</a></h6>
+                      <p class="text-muted card-text">{{event.descripEv}}</p>
+                      <p class="text-muted card-text location">{{event.ubicacionEv}}</p>
+                      <small class="text-muted card-text autor"> Autor: {{event.emailAutor}}</small>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <div class="row" *ngIf="events.length == 0" class="no-events">
+        <p>No hay eventos creados!</p>
+      </div>
+  </div>
+</section>
+
+<div class="main-container">
+  <h2>¿Que accion desea realizar?</h2>
+  <div class="radio-buttons">
+      <label class="custom-radio">
+          <input type="radio" name="radio" value="add" (click)="elegirAccion($event)">
+          <span class="radio-btn"><i class="fas fa-check"></i>
+              <div class="options-icon">
+                <i class="fas fa-plus"></i>
+                  <h3>Añadir Evento</h3>
+              </div>
+          </span>
+      </label>
+      <label class="custom-radio">
+          <input type="radio" name="radio" value="edit" (click)="elegirAccion($event)">
+          <span class="radio-btn"><i class="fas fa-check"></i>
+              <div class="options-icon">
+                  <i class="fas fa-edit"></i>
+                  <h3>Editar Evento</h3>
+              </div>
+          </span>
+      </label>
+      <label class="custom-radio">
+          <input type="radio" name="radio" value="delete" (click)="elegirAccion($event)">
+          <span class="radio-btn"><i class="fas fa-check"></i>
+              <div class="options-icon">
+                 <i class="fas fa-trash"></i>
+                  <h3>Eliminar Evento</h3>
+              </div>
+          </span>
+      </label>
+  </div>
+</div>
+
+<app-alta-event *ngIf="(container) === 'add'" (emitirDatos)="anadirEvento($event)"></app-alta-event>
+
+<app-modificar-event *ngIf="(container) === 'edit'" [eventsIn]="eventModificar" (emitirDatos)="editEvento($event)"></app-modificar-event>
+
+<div class="container-delete" *ngIf="container === 'delete'">
+  <h1>{{accion}}</h1>
+  <form class="cf">
+    <div class="half left cf">
+      <input type="text" id="input-name" #evento placeholder="Evento">
+    </div>
+    <input type="button" value="Eliminar" id="input-submit" (click)="eliminarEvento(evento.value)">
+  </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
+</script>
+
