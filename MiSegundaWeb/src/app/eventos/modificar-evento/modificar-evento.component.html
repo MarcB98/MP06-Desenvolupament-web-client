@@ -1,1 +1,26 @@
-<p>modificar-evento works!</p>
+<header>
+  <h2 id="titol" >MODIFICAR EVENT</h2>
+</header>
+
+<form>
+
+  <div>
+    <input type="text" #evento placeholder="Nom Event" [value]="eventos.nom_event"><br>
+    <input type="text"  #ubicacion placeholder="Lloc Event" [value]="eventos.ubicacion"><br>
+    <input type="email" #email placeholder="Email Contacte" [value]="eventos.email"><br>
+  </div>
+
+  <div>
+    <textarea name="message" type="text" #descrip placeholder="Descripció Event" [value]="eventos.descripcion"></textarea><br>
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input"  #check>
+    <label class="form-check-label" for="exampleCheck1">Aceptar terminos</label>
+    <p class="mensajeError" style="color: red;">{{men_error}}</p>
+  </div>
+  <br>
+
+  <input type="button" (click)="enviarDatos(evento.value, ubicacion.value, email.value, descrip.value, check.checked)" value="Añadir" id="input-submit">
+
+</form>

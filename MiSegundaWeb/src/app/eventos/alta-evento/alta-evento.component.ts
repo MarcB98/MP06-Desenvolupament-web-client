@@ -30,8 +30,8 @@ export class AltaEventoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enviarDatos(event,ubi,email,desc,check){
-
+  enviarDatos(event, ubi, email, desc, check){
+    console.log("hola que ase");
     this.nom_event = event;
     this.ubicacion = ubi;
     this.email = email;
@@ -53,9 +53,15 @@ export class AltaEventoComponent implements OnInit {
     }
     else if (desc.length < 2) {
       this.men_error = "¡La descripción debe ser de 2 o mas caracteeres!"
+      this.b_descripcio = false;
     }
-    else if (this.b_nomevent && this.b_email && this.b_ubicacion && this.b_check) {
-      this.Datos.emit({nom_event: this.nom_event, ubicacion: this.ubicacion, email: this.email, descripcion: this.descripcion});
+    else if (!email.includes('@')) {
+      this.men_error = "Debes añadir el @ a tu correo electronico"
+      this.b_email = false;
+    }
+
+    if (this.b_nomevent && this.b_email && this.b_ubicacion && this.b_check) {
+      this.Datos.emit({ id_ev: Math.round(Math.random()*100), nom_event: this.nom_event, ubicacion: this.ubicacion, email: this.email, descripcion: this.descripcion});
     }
 
   }

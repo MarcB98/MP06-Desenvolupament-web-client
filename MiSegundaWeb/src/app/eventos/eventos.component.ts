@@ -16,11 +16,13 @@ export class EventosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.listaEventos.push(new EventList('Festa Major', 'Almenar', 'info@almenar.cat', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'));
+    this.listaEventos.push(new EventList(Math.round(Math.random()*100), 'Festa Major', 'Almenar', 'info@almenar.cat', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'));
+    this.listaEventos.push(new EventList(Math.round(Math.random()*100), 'Festa Major', 'Alfarrás', 'info@alfarras.cat', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'));
+    this.listaEventos.push(new EventList(Math.round(Math.random()*100), 'Festa Major', 'Alguaire', 'info@alguaire.cat', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'));
+    this.listaEventos.push(new EventList(Math.round(Math.random()*100), 'Festa Major', 'Torrefarrera', 'info@torrefarrera.cat', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'));
   }
 
   elegirCategoria(event){
-    console.log(event.target.value);
     if(event.target.value == "alta") {
       this.category = "Alta Event";
       this.container = "alta"
@@ -36,21 +38,33 @@ export class EventosComponent implements OnInit {
   }
 
   altaEvent(event){
-    this.listaEventos.push(new EventList(event.nom_event, event.ubicacion, event.email, event.descripcion));
+    this.listaEventos.push(new EventList(event.id_ev, event.nom_event, event.ubicacion, event.email, event.descripcion));
   }
 
   modifyEvent(event){
     for (let index = 0; index < this.listaEventos.length; index++) {
-      console.log(this.listaEventos[index].nom_event);
+      if (this.listaEventos[index].id_ev == event.id_ev) {
+        this.listaEventos[index].nom_event == event.nom_event;
+        this.listaEventos[index].ubicacion == event.ubicacion;
+        this.listaEventos[index].email == event.email;
+        this.listaEventos[index].descripcion == event.descripcion;
+      }
     }
-    console.log(event.nom_event);
   }
 
-  modificarEvent(event){
+  modificarEvent(event: EventList){
     if(this.container == "modify"){
-
       this.eventos = event;
+    }
+  }
 
+  eliminarEvento(ev){
+    console.log(ev);
+
+    for (let index = 0; index < this.listaEventos.length; index++) {
+      if (this.listaEventos[index].nom_event == ev) {
+        this.listaEventos.splice(index, 1);
+      }
     }
   }
 

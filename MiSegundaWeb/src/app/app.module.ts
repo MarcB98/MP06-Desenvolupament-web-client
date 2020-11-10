@@ -12,6 +12,7 @@ import { AltaEventoComponent } from './eventos/alta-evento/alta-evento.component
 import { ModificarEventoComponent } from './eventos/modificar-evento/modificar-evento.component';
 import { TreballadorsComponent } from './treballadors/treballadors.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,7 @@ import { TreballadorsComponent } from './treballadors/treballadors.component';
     AboutMeComponent,
     AltaEventoComponent,
     ModificarEventoComponent,
-    TreballadorsComponent
+    TreballadorsComponent,
   ],
   imports: [
     BrowserModule,

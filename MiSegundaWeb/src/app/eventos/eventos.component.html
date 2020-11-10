@@ -13,41 +13,48 @@
 
   <!--APRATADO DE MOSTRAR TABLA EVENTOS-->
   <section>
+
     <div class="container">
+
       <div class="heading">
         <h2>EVENTOS DISPONIBLES</h2>
       </div>
-      <table class="table">
-        <thead class="thead-dark">
-         <tr>
-           <th scope="col">Nom Event</th>
-           <th scope="col">Lloc Event</th>
-           <th scope="col">Email Contacte</th>
-           <th scope="col">Descripció</th>
-         </tr>
-        </thead>
-        <tbody *ngIf="listaEventos.length !=0">
-          <tr *ngFor="let event of listaEventos" (click)="modificarEvent(event)">
-            <td>{{event.nom_event}}</td>
-            <td>{{event.ubicacion}}</td>
-            <td>{{event.email}}</td>
-            <td>{{event.descripcion}}</td>
-          </tr>
-        </tbody>
-        <div class="row" *ngIf="listaEventos.length == 0" class="no-events">
-          <p>No hay eventos creados!</p>
+
+      <div class="row" *ngIf="listaEventos.length !=0">
+        <div class="col-md-4" *ngFor="let event of listaEventos" (click)="modificarEvent(event)">
+          <div>
+            <h3>{{event.nom_event}}</h3>
+            <p>Ubicación: {{event.ubicacion}}</p>
+            <p>Contacto: {{event.email}}</p>
+            <p>Descripción: </p>
+            <p>{{event.descripcion}}</p>
+          </div>
         </div>
-      </table>
+      </div>
+
+      <div class="row" *ngIf="listaEventos.length == 0" class="no-events">
+        <p>No hay nada creado!</p>
+      </div>
+
     </div>
+
   </section>
 
   <!--APRATADO DE ALTA EVENTOS-->
-  <app-alta-evento *ngIf="(container) === 'alta'" (datos)="altaEvent($event)"></app-alta-evento>
+  <app-alta-evento *ngIf="(container) === 'alta'" (Datos)="altaEvent($event)"></app-alta-evento>
 
   <!--APRATADO DE MODIFICAR EVENTOS-->
-  <app-modificar-evento *ngIf="(container) === 'modify'" (datos)="modifyEvent($event)"></app-modificar-evento>
+  <app-modificar-evento *ngIf="(container) === 'modify'" (Datos)="modifyEvent($event)"></app-modificar-evento>
 
   <!--APRATADO DE ELIMINAR EVENTOS-->
-
+  <div *ngIf="container === 'borrar'">
+    <header>
+      <h2 id="titol" >ELIMINAR EVENT</h2>
+    </header>
+    <div>
+      <input type="text" #evento placeholder="Nom Event" ><br>
+      <input type="button" (click)="eliminarEvento(evento.value)" value="Eliminar" id="input-submit">
+    </div>
+  </div>
 
 </div>
