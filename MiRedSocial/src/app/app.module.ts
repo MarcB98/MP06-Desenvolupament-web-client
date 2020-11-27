@@ -8,6 +8,8 @@ import { Error404Component } from './error404/error404.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { RegistroUsuarioComponent } from './registro-usuario/registro-usuario.component';
 import { AdminComponent } from './admin/admin.component';
+import { ListaUsuarioComponent } from './perfil-usuario/lista-usuario/lista-usuario.component';
+import { DetalleUsuarioComponent } from './perfil-usuario/detalle-usuario/detalle-usuario.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AdminComponent } from './admin/admin.component';
     Error404Component,
     PerfilUsuarioComponent,
     RegistroUsuarioComponent,
-    AdminComponent
+    AdminComponent,
+    ListaUsuarioComponent,
+    DetalleUsuarioComponent
   ],
   imports: [
     BrowserModule,

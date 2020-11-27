@@ -1,1 +1,23 @@
-<p>perfil-usuario works!</p>
+<!--APARTADO DE MOSTRAR LISTA DE PERFILES DE USUARIOS-->
+
+<!--TITULO DE LA PAGINA-->
+<h4 class="font-weight-bold text-center display-4">Usuarios Registrados</h4>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" value="mostrar" class="btn btn-secondary">Lista Usuarios</button>
+        <button type="button" value="detalles" class="btn btn-secondary">Detalles Usuarios</button>
+      </div>
+    </div>
+  </div>
+
+  <!--APARTADO DE MOSTRAR LA LISTA DE LOS USUARIOS-->
+  <app-lista-usuario></app-lista-usuario>
+
+  <!--APARTADO DE MOSTRAR LOS DETALLES DE LOS USUARIOS-->
+  <app-detalle-usuario></app-detalle-usuario>
+
+</div>
