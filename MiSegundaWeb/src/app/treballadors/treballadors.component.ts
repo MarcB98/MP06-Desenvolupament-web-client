@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CompanyWorker } from '../models/trabajador.model';
+import { Trabajador } from '../models/trabajador.model';
 
 @Component({
   selector: 'app-treballadors',
@@ -8,7 +8,7 @@ import { CompanyWorker } from '../models/trabajador.model';
 })
 export class TreballadorsComponent implements OnInit {
 
-  @Input() worker: CompanyWorker = null;
+  @Input() worker: Trabajador = null;
 
   constructor() { }
 
